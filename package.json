@@ -1,0 +1,26 @@
+{
+  "name": "@codernr/ngx-mock-component",
+  "version": "1.0.0",
+  "description": "Angular utility to mock any component in unit tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codernr/ngx-mock-component.git"
+  },
+  "keywords": [
+    "angular",
+    "unit-test",
+    "testing",
+    "mock",
+    "typescript"
+  ],
+  "author": "Zoltán Csóré",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codernr/ngx-mock-component/issues"
+  },
+  "homepage": "https://github.com/codernr/ngx-mock-component#readme"
+}
