@@ -1,4 +1,4 @@
-# ngx-mock-component
+# ngx-mock-component [![npm version](https://badge.fury.io/js/%40codernr%2Fngx-mock-component.svg)](https://badge.fury.io/js/%40codernr%2Fngx-mock-component)
 Angular utility to mock any component in unit tests. Lets you mock any component in `TestBed.configureTestingModule` declarations without creating new mock classes.
 
 ```
