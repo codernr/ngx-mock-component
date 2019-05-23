@@ -1,19 +1,23 @@
 import { Component, EventEmitter } from '@angular/core';
 
-export class NgxMockComponent {}
+export class NgxMockComponent {
+    [x: string]: any;
+}
 
-export function MockComponent(obj: Component, interfaceImplementations?: object[]) {
+export function mockComponent(obj: Component, interfaceImplementations?: { [key: string]: any }[]) {
+
+    NgxMockComponent.prototype = {};
 
     if (obj.outputs) {
         obj.outputs.forEach(item => {
-            (NgxMockComponent as any).prototype[item] = new EventEmitter<any>();
+            NgxMockComponent.prototype[item] = new EventEmitter<any>();
         });
     }
 
     if (interfaceImplementations) {
-        interfaceImplementations.forEach((i: object) => {
+        interfaceImplementations.forEach((i) => {
             Object.keys(i).forEach((k: any) => {
-                (NgxMockComponent as any).prototype[k] = (i as any)[k];
+                NgxMockComponent.prototype[k] = i[k];
             });
         });
     }
