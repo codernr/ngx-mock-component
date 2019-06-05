@@ -61,7 +61,7 @@ export class AppComponent  implements OnInit{
 ```typescript
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { mockComponent, NgxMockComponent } from '@codernr/ngx-mock-component';
+import { mockComponent } from '@codernr/ngx-mock-component';
 import { ReactiveFormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 describe('AppComponent', () => {
