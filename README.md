@@ -8,8 +8,7 @@ npm i -D @codernr/ngx-mock-component
 ## Usage
 
 * `mockComponent(obj: Component, interfaceImplementations: { [key: string]: any }[])`  
-    The first parameter is the component metadata (that you normally use in @Component decorator, the second one is an array of objects that mock the interfaces implemented by the component. (For example `ControlValueAccessor`)
-* `NgxMockComponent` can be used in providers as reference token for the mocked component
+    The first parameter is the component metadata (that you normally use in @Component decorator, the second one is an array of objects that mock the interfaces implemented by the component.
 
 ## Example
 
@@ -76,12 +75,14 @@ describe('AppComponent', () => {
           template: '',
           inputs: ['siteKey', 'useGlobalDomain'],
           providers: [
-            { provide: NG_VALUE_ACCESSOR, useExisting: NgxMockComponent, multi: true }
+            {
+              provide: NG_VALUE_ACCESSOR,
+              // providing ControlValueAccessor interface mock here to avoid using useExisting with anonymous type
+              useValue: { writeValue: (obj: any) => { }, registerOnChange: (fn: any) => { }, registerOnTouched: (fn: any) => { } },
+              multi: true
+            }
           ]
-        }, [
-           // mock implementation of ControlValueAccessor
-          { writeValue: (obj: any) => {}, registerOnChange: (fn: any) => {}, registerOnTouched: (fn: any) => {} }
-        ])
+        })
       ],
     }).compileComponents();
   }));

@@ -1,4 +1,4 @@
-import { mockComponent, NgxMockComponent } from './index';
+import { mockComponent } from './index';
 import { EventEmitter } from '@angular/core';
 
 describe('MockComponent', () => {
@@ -34,8 +34,6 @@ describe('MockComponent', () => {
 
         const t2 = mockComponent({}, [{ interfaceMethod: () => 'hello' }]);
 
-        expect(t.prototype instanceof NgxMockComponent).toBe(true);
-        expect(t2.prototype instanceof NgxMockComponent).toBe(true);
         expect(t2.prototype.interfaceMethod()).toBe('hello');
         expect(t.prototype.a).toBeDefined();
     })
