@@ -28,4 +28,15 @@ describe('MockComponent', () => {
         expect(obj.a).toBeDefined();
         expect(obj.b).toBeDefined();
     })
+
+    it ('should not override previously defined prototype', () => {
+        const t = mockComponent({ inputs: ['a']});
+
+        const t2 = mockComponent({}, [{ interfaceMethod: () => 'hello' }]);
+
+        expect(t.prototype instanceof NgxMockComponent).toBe(true);
+        expect(t2.prototype instanceof NgxMockComponent).toBe(true);
+        expect(t2.prototype.interfaceMethod()).toBe('hello');
+        expect(t.prototype.a).toBeDefined();
+    })
 });
