@@ -19,4 +19,13 @@ describe('MockComponent', () => {
         expect(obj.a).toEqual(jasmine.any(EventEmitter));
         expect(obj.b).toEqual(jasmine.any(EventEmitter));
     });
+
+    it ('should add input properties', () => {
+        const t = mockComponent({ inputs: ['a', 'b']});
+
+        const obj = new t();
+
+        expect(obj.a).toBeDefined();
+        expect(obj.b).toBeDefined();
+    })
 });

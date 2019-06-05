@@ -14,6 +14,12 @@ export function mockComponent(obj: Component, interfaceImplementations?: { [key:
         });
     }
 
+    if (obj.inputs) {
+        obj.inputs.forEach(item => {
+            NgxMockComponent.prototype[item] = null;
+        })
+    }
+
     if (interfaceImplementations) {
         interfaceImplementations.forEach((i) => {
             Object.keys(i).forEach((k: any) => {
