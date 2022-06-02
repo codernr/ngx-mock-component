@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/codernr/ngx-mock-component#readme",
   "devDependencies": {
-    "@angular/core": "^7.2.15",
+    "@angular/core": "^11.0.5",
     "@types/jasmine": "^3.3.12",
     "@types/node": "^12.0.2",
     "jasmine": "^3.4.0",
